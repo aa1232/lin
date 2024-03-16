@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>请假统计可视化</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="../static/js/jquery-1.10.2.js"></script>
+
+    <script>
+        $(function() {
+            $('.myscroll').myScroll({
+                speed: 60, //数值越大，速度越慢
+                rowHeight: 38 //li的高度
+            });
+        })
+
+        $(document).ready(function() {
+            var whei = $(window).width()
+            $("html").css({
+                fontSize: whei / 22
+            });
+            $(window).resize(function() {
+                var whei = $(window).width();
+                $("html").css({
+                    fontSize: whei / 22
+                })
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="main">
+        <!--头部-->
+        <div class="header">
+            <div class="header-left"><button class="return"><a class='none' href="/process"><span><<</span>返回</a></button>
+</div>
+            <div class="header-cen">
+                <h1>请假大屏</h1>
+            </div>
+            <div class="header-right" id="time"></div>
+
+        </div>
+
+        <!-- 中间 -->
+         <div class="content">
+            <!--左边-->
+            <div class="content-left fl">
+                <!--左上-->
+
+
+
+                <!--左中-->
+                <div class="left-center">
+                    <div class="title">
+                        <span>请假人专业</span>
+                    </div>
+                    <div class="allnav" id="ceshi"></div>
+                </div>
+
+                <!--左下-->
+
+
+                <div class="left-bottom">
+                    <div class="title">
+                        <span>学校请假人数</span>
+                    </div>
+                    <div class="allnav2" id="ceshi2"></div>
+                </div>
+            </div>
+
+
+
+
+            <!--中间-->
+            <div class="content-center fl">
+                <!--头部-->
+                <div class="center-top">
+                    <div class="top-title">
+                        <!-- <ul>
+                            <li>
+                                <p>种植基地</p>
+                                <span>2</span>
+                                <span>1</span>
+                                <span>6</span>
+                                <b>个</b>
+                            </li>
+                            <li>
+                                <p>已接入</p>
+                                <span>8</span>
+                                <span>3</span>
+                                <b>%</b>
+                            </li>
+                        </ul> -->
+                    </div>
+                    <div class="top-bottom">
+                        <div class="allnav" id="ceshi8"></div>
+                    </div>
+
+                </div>
+
+
+                <!--底部-->
+                <!-- <div class="center-bottom"> 
+                    <div class="bottom-left fl">
+                        <div class="allnav" id="ceshi6"></div>
+                    </div>
+
+                </div> -->
+            </div>
+
+
+            <!--右边-->
+            <div class="content-right fr">
+                <!--右上-->
+                <!-- <div class="right-top"> -->
+                    <!--选项卡内容-->
+                    <!-- <div id="tab_header">
+                        <ul>
+                            <li class="selected">商铺信息</li>
+                            <li>基地信息</li>
+                        </ul>
+                    </div>
+                    
+                    <div id="tab_content">
+                        <div class="dom" style="display: block">
+                            <ul>
+                                <li>
+                                    <p>座收租金</p>
+                                    <span>483000</span>
+                                    <label>元</label>
+                                </li>
+                                <li>
+                                    <p>座收租金</p>
+                                    <span>693000</span>
+                                    <label>元</label>
+                                </li>
+                                <li>
+                                    <p>座收租金</p>
+                                    <span>409000</span>
+                                    <label>元</label>
+                                </li>
+                            </ul>
+                            <div class="list-t">
+                                <ul>
+                                    <li>
+                                        <span>904000</span>
+                                        <p>商铺</p>
+                                    </li>
+                                    <li>
+                                        <span>690000</span>
+                                        <p>商铺</p>
+                                    </li>
+                                    <li>
+                                        <span>500000</span>
+                                        <p>商铺</p>
+                                    </li>
+                                    <li>
+                                        <span>900000</span>
+                                        <p>商铺</p>
+                                    </li>
+                                    <li>
+                                        <span>680000</span>
+                                        <p>商铺</p>
+                                    </li>
+                                    <li>
+                                        <span>720000</span>
+                                        <p>商铺</p>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="dom" style="display: none">
+                            <div class="listStyle">
+
+                                <span>大棚：<strong>560</strong>个</span>
+                                <span>供应企业：<strong>36</strong>家</span>
+                                <span>经销商：<strong>540</strong>个</span>
+                                <span>供应链：<strong>15</strong>条</span>
+                                <span>蔬菜加工基地：<strong>20</strong>个</span>
+                                <span>售后卸载：<strong>29</strong>家</span>
+                                <span>冷藏基地：<strong>10</strong>个</span>
+                                <span>冷藏车：<strong>120</strong>台</span>
+                                </li>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--选项卡内容-->
+                <!-- </div> -->
+                <!--右中-->
+
+
+
+                <div class="right-center">
+                    <div class="title">
+                        <span>请假类型</span>
+                    </div>
+                    <div class="right-bottom-t">
+                        <div class="b-left" id="ceshi3"></div>
+                        <div class="b-cent" id="ceshi4"></div>
+                        <div class="b-right" id="ceshi5"></div>
+                    </div>
+                </div>
+
+
+
+                <!--右下-->
+                <div class="right-bottom">
+                    <div class="title">
+                        <span>学生请假次数排行</span>
+                    </div>
+                    <div class="echart wenzi">
+                        <div class="gun">
+                            <span>名称</span>
+                            <span>同比</span>
+                            <span>次数</span>
+                        </div>
+                        <div id="FontScroll" class="myscroll">
+                            <ul>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b> 1.A同学</b>
+                                    </span>
+                                        <span>2.3%</span>
+                                        <span>45次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>2.B同学</b>
+                                    </span>
+                                        <span>2.2%</span>
+                                        <span>44次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>3.C同学</b>
+                                    </span>
+                                        <span>2.15%</span>
+                                        <span>44次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>4.D同学</b>
+                                    </span>
+                                        <span>2.1%</span>
+                                        <span>43次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>5.E同学</b>
+                                    </span>
+                                        <span>2%</span>
+                                        <span>42次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>6.F同学</b>
+                                    </span>
+                                        <span>1.95%</span>
+                                        <span>36次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>7.H同学</b>
+                                    </span>
+                                        <span>1.93%</span>
+                                        <span>41次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>8.I同学</b>
+                                    </span>
+                                        <span>1.9%</span>
+                                        <span>40次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>9.G同学</b>
+                                    </span>
+                                        <span>1.8%</span>
+                                        <span>39次</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="fontInner clearfix">
+                                        <span>
+                                        <b>10.K同学</b>
+                                    </span>
+                                        <span>1.8%</span>
+                                        <span>39次</span>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../static/js/echart.js"></script>
+
+    <!--<script src="js/data01.js"></script>-->
+    <!--<script src="js/mapIndex.js"></script>-->
+
+
+    <script src="../static/js/echarts-4.2.1.min.js"></script>
+    <script src="../static/js/fontscroll.js"></script>
+    <script src="../static/js/china.js"></script>
+
+
+
+
+
+    <script>
+        //顶部时间
+        function getTime() {
+            var myDate = new Date();
+            var myYear = myDate.getFullYear(); //获取完整的年份(4位,1970-????)
+            var myMonth = myDate.getMonth() + 1; //获取当前月份(0-11,0代表1月)
+            var myToday = myDate.getDate(); //获取当前日(1-31)
+            var myDay = myDate.getDay(); //获取当前星期X(0-6,0代表星期天)
+            var myHour = myDate.getHours(); //获取当前小时数(0-23)
+            var myMinute = myDate.getMinutes(); //获取当前分钟数(0-59)
+            var mySecond = myDate.getSeconds(); //获取当前秒数(0-59)
+            var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var nowTime;
+
+            nowTime = myYear + '-' + fillZero(myMonth) + '-' + fillZero(myToday) + '&nbsp;&nbsp;' + fillZero(myHour) + ':' + fillZero(myMinute) + ':' + fillZero(mySecond) + '&nbsp;&nbsp;' + week[myDay] + '&nbsp;&nbsp;';
+            //console.log(nowTime);
+            $('#time').html(nowTime);
+        };
+
+        function fillZero(str) {
+            var realNum;
+            if (str < 10) {
+                realNum = '0' + str;
+            } else {
+                realNum = str;
+            }
+            return realNum;
+        }
+        setInterval(getTime, 1000);
+    </script>
+    <script>
+        $(function() {
+            var allLis = document.getElementById("tab_header").getElementsByTagName("li");
+            var allDom = document.getElementById("tab_content").getElementsByClassName("dom");
+
+            // console.log(allLis, allDom);
+
+            // 2. 遍历监听
+            for (var i = 0; i < allLis.length; i++) {
+                var li = allLis[i];
+                li.index = i;
+
+                li.onclick = function() {
+                    console.log(i);
+                    for (var j = 0; j < allLis.length; j++) {
+                        allLis[j].className = '';
+                        allDom[j].style.display = 'none';
+                    }
+
+                    this.className = 'selected';
+                    allDom[this.index].style.display = 'block';
+
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
